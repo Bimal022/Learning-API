@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'HomeScreen.dart';
-
+import 'loginScreen.dart';
 
 void main() {
   print("This is being executed");
-    runApp(const MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -13,12 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("API"),
-        ),
-        body: HomeScreen(),
-      ),
-    );
+      home: LoginScreen(),
+      );
   }
 }
