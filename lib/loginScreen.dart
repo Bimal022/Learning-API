@@ -38,8 +38,17 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        if (loginValues.loginFormKey.currentState!
-                            .validate()) {}
+                        print("Button Pressed");
+                        setState(() {
+                          if (loginValues.loginFormKey.currentState!
+                              .validate()) {
+                            print("Validation successful");
+                            loginValues.userLogin(
+                              loginValues.textEmailController,
+                              loginValues.textEmailController,
+                            );
+                          }
+                        });
                       },
                       child: Text("Login"),
                     ),

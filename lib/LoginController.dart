@@ -12,6 +12,7 @@ class LoginController with ChangeNotifier {
     TextEditingController textEmailController,
     TextEditingController textPasswordController,
   ) async {
+    print("Entered this block of code");
     try {
       var headers = {"content-type": "application/json"};
       var body = {
@@ -24,15 +25,19 @@ class LoginController with ChangeNotifier {
         headers: headers,
         body: jsonEncode(body),
       );
+      print("Noww Here");
       if (response.statusCode == 200) {
+        print("Response successfull");
         Map<String, dynamic> jsonResponse = jsonDecode(response.body);
         // Check if token is present and not empty
+        print("jsonResponse['token']: $jsonResponse['token']");
         if (jsonResponse.containsKey('token') &&
             jsonResponse['token'] != null) {
           Get.to(() => HomeScreen());
-        } else {
-          // Handle case where token is not present or empty
-        }
+        } else {}
+      } else {
+        print("Response code not equal to 200");
+        print(response.statusCode);
       }
     } catch (e) {
       print("exception $e");

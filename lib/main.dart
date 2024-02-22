@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
-import 'HomeScreen.dart';
+import 'package:first_api/LoginController.dart';
+import 'package:provider/provider.dart';
+
 import 'loginScreen.dart';
 
 void main() {
-  print("This is being executed");
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: LoginScreen(),
-      );
+    return ChangeNotifierProvider(
+      create: (context) => LoginController(),
+      child: MaterialApp(
+        title: 'My App',
+        home: LoginScreen(),
+      ),
+    );
   }
 }
